@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+function person(firstName, lastName, age, eyeColor) {
+    this.firstName = firstName;  
+    this.lastName = lastName;
+    this.age = age;
+    this.eyeColor = eyeColor;
+    this.changeName = function (name1) {
+        this.lastName = name1;
+    };
+}
+person1 = new person("Daniel","Petzold",22,"green");
+person1.name = function() {
+  return this.firstName + " " + this.lastName;
+};
+
+document.getElementById("demo").innerHTML =
+"My friend is " + person1.name()+" and he has "+person1.eyeColor+" eyes."; 
+person1.changeName("Ransom");
+document.getElementById("demo2").innerHTML ="But he changed his name to "+ person1.name()+"."; 
+person1.eyeColor= "blue";
+document.getElementById("demo3").innerHTML ="Sorry, I forgot it. He has "+ person1.eyeColor+" eyes acutally.";
+</script>
+
+</body>
+</html>
